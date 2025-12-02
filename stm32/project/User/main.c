@@ -10,6 +10,7 @@ int main(void){
 	usart1_Init();
 	OLED_Init();
 	LED_Init();
+	// æ¨é¹æˆæµ‹è¯•
 	while(1){
 		if(receiveFlag == 1){
 //			printf("get: %s\n",receiveArr);
@@ -21,7 +22,7 @@ int main(void){
 				LED1_OFF();
 				printf("get:LED1OFF\n");
 			}
-//			// Çå¿Õ»º³åÇø
+//			// ï¿½ï¿½Õ»ï¿½ï¿½ï¿½ï¿½ï¿½
 //			
 //			memset(receiveArr,0,sizeof(receiveArr));
 //			
