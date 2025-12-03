@@ -12,6 +12,7 @@ int main(void){
 	LED_Init();
 	// 杨鹏成测试
 	// 熊鲲测试
+	// 测试分支合并测试
 	while(1){
 		if(receiveFlag == 1){
 //			printf("get: %s\n",receiveArr);
