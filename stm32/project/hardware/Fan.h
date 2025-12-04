@@ -3,7 +3,7 @@
 
 #include "stm32f10x.h"
 
-// 函数声明
+// 函数声 明
 void pwmInit(void);
 void openFan(void);
 void closeFan(void);
