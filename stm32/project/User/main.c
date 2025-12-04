@@ -1,34 +1,61 @@
-/*
+#include "stm32f10x.h"                  // Device header
+#include "Delay.h"
+#include "Fan.h"
+#include "Led.h"
 
-*/
-#include "stm32f10x.h"
-#include "usart_general.h"
-#include "OLED.h"
-#include <stdio.h>
-#include "LED.h"
 int main(void){
-	usart1_Init();
-	OLED_Init();
-	LED_Init();
-	// 杨鹏成测试
-	// 熊鲲测试
-	// 测试分支合并测试
-	while(1){
-		if(receiveFlag == 1){
-//			printf("get: %s\n",receiveArr);
-//			printf("sizeof-get: %d\n",sizeof(receiveArr));
-			if(strcmp(receiveArr,"LED1ON") == 0){
-				LED1_ON();
-				printf("get:LED1ON\n");
-			}else if(strcmp(receiveArr,"LED1OFF") == 0){
-				LED1_OFF();
-				printf("get:LED1OFF\n");
-			}
-//			// ��ջ�����
-//			
-//			memset(receiveArr,0,sizeof(receiveArr));
-//			
-			receiveFlag = 0;	
-		}
-	}
-}
+	
+	
+	// 系统时钟初始化
+    SystemInit();
+    
+    // PWM初始化
+    pwmInit();
+    
+    
+        // 正转，50%转速
+        forward();
+        setFanSpeed(50);
+        delayByMs(3000);
+        
+        // 增加到80%转速
+        setFanSpeed(80);
+        delayByMs(3000);
+        
+        // 反转，30%转速
+        backward();
+        setFanSpeed(30);
+        delayByMs(3000);
+        
+        // 关闭风扇
+        closeFan();
+        delayByMs(2000);
+        
+        // 重新开启（会保持之前的设置）
+        openFan();
+        delayByMs(3000);
+
+	
+	
+	
+		
+	//led测试代码
+	
+		ledInit();
+	 // 测试LED亮度控制
+    setLedBrightness(30);    // LED 30%亮度
+    delayByMs(1000);
+    
+    setLedBrightness(80);    // LED 80%亮度  
+    delayByMs(1000);
+    
+    ledClose();              // 关闭LED
+    delayByMs(1000);
+    
+		
+		
+		//红外测试代码
+		
+   
+}	
+	
